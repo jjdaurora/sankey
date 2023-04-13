@@ -1,6 +1,4 @@
-
-<script type="text/javascript">
-  let chartData = [
+ let chartData = [
        [ 'AUTO SALES REVENUE', 'GROSS PROFIT', 20.2 ],
        [ 'GROSS PROFIT', 'OPERATING PROFIT', 5.78 ],
        [ 'OPERATING PROFIT',  ' ', 3.9 ],
@@ -71,9 +69,7 @@
     var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
     chart.draw(data, options);
    }
-</script>
 
-<script>
     const sliders = document.getElementsByClassName("slider")
     // Update the current slider value (each time you drag the slider handle)
     for (let slider of sliders) {
@@ -112,8 +108,6 @@
         }
     }
 
-</script>
-<script>
 
     $( document ).ready(function() {
         $('.slider-value-display').each(function() {
@@ -121,4 +115,3 @@
         })
     });
 
-</script>
