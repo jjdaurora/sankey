@@ -1,0 +1,352 @@
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+<style>
+
+body {
+  font-family: 'Roboto', sans-serif !important;
+  color: #ffff
+}
+.div-block-521 {
+    font-size: 1.1em;
+    width: 100%;
+    margin: 2%;
+}
+
+.div-block-521 input {
+    margin-left: 2%;
+}
+
+.field-label-9 {
+    position: relative;
+    left: 3.1em;
+    -ms-grid-row-align: center;
+    align-self: center;
+    color: #6a608b;
+    text-align: left;
+}
+.field-label-11 {
+    -ms-grid-row-align: center;
+    align-self: center;
+    color: #6a608b;
+    text-align: left;
+}
+.field-label-10 {
+    position: relative;
+    left: 2.4em;
+    margin-bottom: 5px;
+    -ms-grid-row-align: center;
+    align-self: center;
+    color: #6a608b;
+    text-align: left;
+}
+
+label {
+    display: inline-block;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+  font-family: 'Roboto', sans-serif !important;
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #1a1a1a; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  border-radius: 999rem
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+
+.text-field-8, .text-field-7 {
+    width: 20em;
+    border-style: none none solid;
+    border-width: 1px;
+    border-color: #000 #000 #a17aff;
+    background-color: #0d0628;
+    padding: .25rem;
+}
+
+
+button, input, optgroup, select, textarea {
+  margin: 0;
+    font-family: inherit;
+
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #dd30fc; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 100rem
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+.submit-button-17 {
+    display: inline-block;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #7affcc;
+    background-color: #0d0628;
+    color: #7affcc;
+    text-align: left;
+}
+.slider-value-display {
+    color: #fff;
+    font-family: "Roboto Mono";
+}
+</style>
+
+
+</head>
+<body style="background-color: #0d0628;">
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+
+ <div style="display:flex; flex-direction: column; align-items: center; flex-wrap: wrap;">
+  <div class="div-block-521">
+    <!-- <label for="name" class="field-label-9">Name</label> -->
+    <!-- <input type="text" class="text-field-8 w-input" maxlength="256" name="name" data-name="Name" placeholder id="name" value="Name"> -->
+    <!-- <label for="email" class="field-label-10">Date</label> -->
+    <!-- <input type="email" class="text-field-7 w-input" maxlength="256" name="email" data-name="Email" placeholder id="email" value="Email" required> -->
+    <!-- <input type="submit" value="Enter" data-wait="Please wait..." class="submit-button-17 w-button" style="margin-left: 2%"> -->
+ </div>
+  <div class="slidecontainer" style="width:100%;text-align:center;display:flex;flex-direction:row; justify-content: space-around; font-family: Roboto Mono !important">
+    <div>
+        <h3>AUTO</h3>
+
+        <label for="auto-sales-revenue" class="field-label-11">
+            Auto Sales Revenue
+            <span class="slider-value-display"></span>
+        </label>
+        <input type="range" min="0" max="250" value="15" class="slider" data-attr-max="100" data-attr-val="0" id="slider-auto-sales-revenue">
+
+
+        <label for="auto-reg-credits" class="field-label-11">Auto Reg Credits
+            <span class="slider-value-display"></span>
+        </label>
+        <input type="range" min="0" max="20" value="0" class="slider" data-attr-max="5" data-attr-val="10">
+
+        <label for="auto-reg-credits" class="field-label-11">Auto Lease Revenue
+            <span class="slider-value-display"></span>
+        </label>
+        <input type="range" min="0" max="20" value="0" class="slider" data-attr-max="5" data-attr-val="10">
+        
+        <h3>ENERGY</h3>
+         <label for="auto-reg-credits" class="field-label-11">
+            Energy Revenue
+            <span class="slider-value-display"></span>
+        </label>
+        <input type="range" min="0" max="40" value="0" class="slider" data-attr-max="10" data-attr-val="11">
+        
+        <h3>SERVICE</h3>
+        <label for="auto-reg-credits" class="field-label-11">Service Revenue
+            <span class="slider-value-display"></span>
+        </label>
+        <input type="range" min="0" max="100" value="0" class="slider" data-attr-max="25" data-attr-val="12">
+    </div>
+    <div>
+      <h3>EXPENSES</h3>
+
+        <label for="auto-reg-credits" class="field-label-11">Cost of Revenue
+            <span class="slider-value-display"></span>
+        </label>
+        <input type="range" min="0" max="50" value="0" class="slider" data-attr-max="12.5" data-attr-val="13">
+      
+        <label for="auto-reg-credits" class="field-label-11">Operating Expense
+            <span class="slider-value-display"></span>
+        </label>
+        <input type="range" min="0" max="50" value="0" class="slider larger-equation operating-profit-calc" data-attr-max="12.5" data-attr-val="7" data-attr-calc="do-math" id="operating-expense-slider">
+      
+        <label for="auto-reg-credits" class="field-label-11">R&D
+            <span class="slider-value-display"></span>
+        </label>
+        <input type="range" min="0" max="50" value="0" class="slider" data-attr-max="12.5" data-attr-val="6" id="rd">
+      
+        <label for="auto-reg-credits" class="field-label-11">SGA Expense
+            <span class="slider-value-display"></span></label>
+        <input type="range" min="0" max="100" value="0" class="slider" data-attr-max="50"data-attr-val="7" id="sga"> 
+        
+        <label for="auto-reg-credits" class="field-label-11">Income Tax
+            <span class="slider-value-display"></span>
+        </label>
+        <input type="range" min="0" max="100" value="0" class="slider" data-attr-max="50" data-attr-val="3" id="income-tax">
+        
+        <label for="auto-reg-credits" class="field-label-11">Gross Profit
+            <span class="slider-value-display"></span>
+        </label>
+        <input type="range" min="0" max="100" value="0" class="slider larger-equation operating-profit-calc" data-attr-max="50" data-attr-val="1" data-attr-calc="do-math" id="gross-profit-slider">
+        
+<!--         <label for="auto-reg-credits" class="field-label-11">Operating Profit
+            <span class="slider-value-display"></span>
+        </label> -->
+        <!-- <input type="range" min="0" max="100" value="0" class="slider" data-attr-max="50"data-attr-val="2"> -->
+        
+        <!-- <label for="auto-reg-credits" class="field-label-11">Net Income (GAAP)
+            <span class="slider-value-display"></span>
+        </label>
+        <input type="range" min="0" max="100" value="0" class="slider" data-attr-max="50"data-attr-val="5"> -->
+    </div>
+  </div>
+
+  <div id="sankey_multiple" style="width: 50%; height: 25%; margin-right: 25%"></div>
+
+ </div>
+
+<script type="text/javascript">
+  let chartData = [
+       [ 'AUTO SALES REVENUE', 'GROSS PROFIT', 20.2 ],
+       [ 'GROSS PROFIT', 'OPERATING PROFIT', 5.78 ],
+       [ 'OPERATING PROFIT',  ' ', 3.9 ],
+       [ ' ', 'INCOME TAX', .276 ],
+       [ ' ', 'NET INCOME (GAAP)', 3.7 ],
+       [ 'OPERATING PROFIT', 'OPERATING EXPENSE', 1.876],
+       [ 'OPERATING EXPENSE', 'R&D', .810],
+       [ 'OPERATING EXPENSE', 'SGA EXPENSE', 1.032],
+       [ 'AUTO SALES REVENUE', '  ', 20.2 ],
+       [ 'AUTO REG CREDITS', '  ', 4.67 ],
+       [ 'AUTO LEASE REVENUE', '  ', 5.99 ],
+       [ 'ENERGY REVENUE', '  ', 1.31 ], 
+       [ 'SERVICE REVENUE', '  ',  1.71 ], 
+       [ '  ', 'COST REVENUE',  18.5]
+    ]
+  google.charts.load("current", {packages:["sankey"]});
+  google.charts.setOnLoadCallback(drawChart);
+   function drawChart(newData = chartData) {
+    if (newData) {chartData = newData}
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'From');
+    data.addColumn('string', 'To');
+    data.addColumn('number', 'Weight');
+    data.addRows(newData);
+
+  const colors =  [
+        '#1ED5BE',         
+        '#1ED5BE',           
+        '#DADADA',
+        '#1ED5BE',
+        '#1ED5BE', 
+        '#F39187',
+        '#1ED5BE', 
+        '#1ED5BE', 
+        '#1ED5BE', 
+        '#1ED5BE', 
+        '#1ED5BE', 
+        '#1ED5BE',
+        '#F39187',
+        '#F39187'   
+      ]
+    // Set chart options
+        var options = {
+        width: 1200,
+        height: 600,
+        sankey: {
+            node: {
+            label: {
+                fontName: 'Roboto Mono',
+                fontSize: 16,
+                color: '#fff',
+                bold: true,
+                italic: false
+            },
+              interactivity: true, // Allows you to select nodes.
+              labelPadding: 6,     // Horizontal distance between the label and the node.
+              nodePadding: 10,     // Vertical distance between nodes.
+              width: 5,            // Thickness of the node.
+              colors: '#DADADA',
+            },
+            tooltip: {textStyle: {color: '#1ED5BE'}, showColorCode: true},
+            link: {
+              colorMode: 'source',
+              colors: colors
+            },
+        }
+    }
+    var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
+    chart.draw(data, options);
+   }
+</script>
+
+<script>
+    const sliders = document.getElementsByClassName("slider")
+    // Update the current slider value (each time you drag the slider handle)
+    for (let slider of sliders) {
+
+        slider.oninput = function() {
+            if ($(this).attr("id") === "slider-auto-sales-revenue") {
+                $(this).prev().children().text(' ' + (parseInt(this.value)/6.25) + ' bil')
+            } else {
+                $(this).prev().children().text(' ' + (parseInt(this.value)/10) + ' bil')
+            }
+
+            
+            if ($(this)[0].dataset.attrCalc === "do-math" ) {
+                
+
+                chartData[5][2] = ($("#gross-profit-slider")[0].value/$("#gross-profit-slider")[0].max * $("#gross-profit-slider")[0].dataset.attrMax) - ($("#operating-expense-slider")[0].value/$("#operating-expense-slider")[0].max * $("#operating-expense-slider")[0].dataset.attrMax)       
+                     console.log( chartData[5][2] )
+        
+    
+                chartData[4][2] = ($("#gross-profit-slider")[0].value/$("#gross-profit-slider")[0].max * $("#gross-profit-slider")[0].dataset.attrMax) - ($("#operating-expense-slider")[0].value/$("#operating-expense-slider")[0].max * $("#operating-expense-slider")[0].dataset.attrMax) -  ( ($("#rd")[0].value/$("#rd")[0].max * $("#rd")[0].dataset.attrMax) + ($("#sga")[0].value/$("#sga")[0].max * $("#sga")[0].dataset.attrMax) + ($("#income-tax")[0].value/$("#income-tax")[0].max * $("#income-tax")[0].dataset.attrMax) )
+                     
+
+                     console.log( chartData[4][2] )
+        
+            }
+             else {
+
+                 chartData[this.dataset.attrVal][2] = (this.value / this.max) * this.dataset.attrMax
+
+            }
+
+            drawChart(chartData)
+        
+
+
+        }
+    }
+
+</script>
+<script>
+
+    $( document ).ready(function() {
+        $('.slider-value-display').each(function() {
+          $(this).text(' ' + $(this).parent().next()[0].value + ' bil')
+        })
+    });
+
+</script>
+
+
+</body>
+</html>
