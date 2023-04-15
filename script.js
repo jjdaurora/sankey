@@ -1,18 +1,18 @@
  let chartData = [
-       [ 'AUTO SALES REVENUE', 'GROSS PROFIT', 20.2 ],
-       [ 'GROSS PROFIT', 'OPERATING PROFIT', 5.78 ],
-       [ 'OPERATING PROFIT',  ' ', 3.9 ],
-       [ ' ', 'INCOME TAX', .276 ],
-       [ ' ', 'NET INCOME (GAAP)', 3.7 ],
-       [ 'OPERATING PROFIT', 'OPERATING EXPENSE', 1.876],
-       [ 'OPERATING EXPENSE', 'R&D', .810],
-       [ 'OPERATING EXPENSE', 'SGA EXPENSE', 1.032],
-       [ 'AUTO SALES REVENUE', '  ', 20.2 ],
-       [ 'AUTO REG CREDITS', '  ', 4.67 ],
-       [ 'AUTO LEASE REVENUE', '  ', 5.99 ],
-       [ 'ENERGY REVENUE', '  ', 1.31 ], 
-       [ 'SERVICE REVENUE', '  ',  1.71 ], 
-       [ '  ', 'COST REVENUE',  18.5]
+       [ 'AUTO SALES REVENUE', 'GROSS PROFIT', 37.5],
+       [ 'GROSS PROFIT', 'OPERATING PROFIT', 25 ],
+       [ 'OPERATING PROFIT',  ' ', 25],
+       [ ' ', 'INCOME TAX', .5],
+       [ ' ', 'NET INCOME (GAAP)', 25],
+       [ 'OPERATING PROFIT', 'OPERATING EXPENSE', 7.5],
+       [ 'OPERATING EXPENSE', 'R&D', 7.5],
+       [ 'OPERATING EXPENSE', 'SGA EXPENSE',7.5],
+       [ 'AUTO SALES REVENUE', '  ', 25],
+       [ 'AUTO REG CREDITS', '  ', 2.5],
+       [ 'AUTO LEASE REVENUE', '  ', 2.5],
+       [ 'ENERGY REVENUE', '  ',5], 
+       [ 'SERVICE REVENUE', '  ',  15], 
+       [ '  ', 'COST REVENUE',25 ]
     ]
   google.charts.load("current", {packages:["sankey"]});
   google.charts.setOnLoadCallback(drawChart);
@@ -84,15 +84,26 @@
             
             if ($(this)[0].dataset.attrCalc === "do-math" ) {
                 
+                // operating profit
 
-                chartData[5][2] = ($("#gross-profit-slider")[0].value/$("#gross-profit-slider")[0].max * $("#gross-profit-slider")[0].dataset.attrMax) - ($("#operating-expense-slider")[0].value/$("#operating-expense-slider")[0].max * $("#operating-expense-slider")[0].dataset.attrMax)       
+                chartData[2][2] = ($("#gross-profit-slider")[0].value/$("#gross-profit-slider")[0].max * $("#gross-profit-slider")[0].dataset.attrMax) - ($("#operating-expense-slider")[0].value/$("#operating-expense-slider")[0].max * $("#operating-expense-slider")[0].dataset.attrMax)       
                      console.log( chartData[5][2] )
-        
-    
-                chartData[4][2] = ($("#gross-profit-slider")[0].value/$("#gross-profit-slider")[0].max * $("#gross-profit-slider")[0].dataset.attrMax) - ($("#operating-expense-slider")[0].value/$("#operating-expense-slider")[0].max * $("#operating-expense-slider")[0].dataset.attrMax) -  ( ($("#rd")[0].value/$("#rd")[0].max * $("#rd")[0].dataset.attrMax) + ($("#sga")[0].value/$("#sga")[0].max * $("#sga")[0].dataset.attrMax) + ($("#income-tax")[0].value/$("#income-tax")[0].max * $("#income-tax")[0].dataset.attrMax) )
-                     
+                
+                // net income
 
-                     console.log( chartData[4][2] )
+    
+                chartData[4][2] = ($("#gross-profit-slider")[0].value/$("#gross-profit-slider")[0].max * $("#gross-profit-slider")[0].dataset.attrMax) - 
+                ($("#operating-expense-slider")[0].value/$("#operating-expense-slider")[0].max * $("#operating-expense-slider")[0].dataset.attrMax) -  
+                ( ($("#rd")[0].value/$("#rd")[0].max * $("#rd")[0].dataset.attrMax) + ($("#sga")[0].value/$("#sga")[0].max * $("#sga")[0].dataset.attrMax) + ($("#income-tax")[0].value/$("#income-tax")[0].max * $("#income-tax")[0].dataset.attrMax) )
+                     
+                // gross profit 
+
+                chartData[1][2] = ($('#auto-sales-revenue-slider')[0].value + $('#energy-revenue-slider')[0].value + $('#service-revenue-slider')[0].value) - $('#cost-of-revenue-slider')[0].value
+
+
+
+                chartData[this.dataset.attrVal][2] = (this.value / this.max) * this.dataset.attrMax
+
         
             }
              else {
@@ -100,6 +111,7 @@
                  chartData[this.dataset.attrVal][2] = (this.value / this.max) * this.dataset.attrMax
 
             }
+
 
             drawChart(chartData)
         
