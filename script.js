@@ -75,14 +75,13 @@
     for (let slider of sliders) {
 
         slider.oninput = function() {
-            if ($(this).attr("id") === "slider-auto-sales-revenue") {
+            if ($(this).attr("id") === "auto-sales-revenue-slider") {
                 $(this).prev().children().text(' ' + (parseInt(this.value)/6.25) + ' bil')
             } else {
                 $(this).prev().children().text(' ' + (parseInt(this.value)/10) + ' bil')
             }
 
-            
-            if ($(this)[0].dataset.attrCalc === "do-math" ) {
+        
                 
                 // operating profit
 
@@ -96,21 +95,19 @@
                 ($("#operating-expense-slider")[0].value/$("#operating-expense-slider")[0].max * $("#operating-expense-slider")[0].dataset.attrMax) -  
                 ( ($("#rd")[0].value/$("#rd")[0].max * $("#rd")[0].dataset.attrMax) + ($("#sga")[0].value/$("#sga")[0].max * $("#sga")[0].dataset.attrMax) + ($("#income-tax")[0].value/$("#income-tax")[0].max * $("#income-tax")[0].dataset.attrMax) )
                      
-                // gross profit 
-
-                chartData[1][2] = ($('#auto-sales-revenue-slider')[0].value + $('#energy-revenue-slider')[0].value + $('#service-revenue-slider')[0].value) - $('#cost-of-revenue-slider')[0].value
+                // gross profit
+                chartData[1][2] = (  ($('#auto-sales-revenue-slider')[0].value/$('#auto-sales-revenue-slider')[0].max * $('#auto-sales-revenue-slider')[0].dataset.attrMax) + 
+                    ( $('#energy-revenue-slider')[0].value/$('#energy-revenue-slider')[0].max * $('#energy-revenue-slider')[0].dataset.attrMax )
+                        + ( $('#service-revenue-slider')[0].value/$('#service-revenue-slider')[0].max * $('#service-revenue-slider')[0].dataset.attrMax ) +
+                        ( $('#auto-reg-credits-slider')[0].value/$('#auto-reg-credits-slider')[0].max * $('#auto-reg-credits-slider')[0].dataset.attrMax )) - 
+                        ( $('#cost-of-revenue-slider')[0].value/$('#cost-of-revenue-slider')[0].max * $('#cost-of-revenue-slider')[0].dataset.attrMax) 
 
 
 
                 chartData[this.dataset.attrVal][2] = (this.value / this.max) * this.dataset.attrMax
 
         
-            }
-             else {
-
-                 chartData[this.dataset.attrVal][2] = (this.value / this.max) * this.dataset.attrMax
-
-            }
+          
 
 
             drawChart(chartData)
