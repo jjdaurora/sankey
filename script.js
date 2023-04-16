@@ -1,4 +1,5 @@
  let chartData = [
+
        [ 'AUTO SALES REVENUE', 'GROSS PROFIT', 37.5],
        [ 'GROSS PROFIT', 'OPERATING PROFIT', 25 ],
        [ 'OPERATING PROFIT',  ' ', 25],
@@ -81,26 +82,29 @@
                 $(this).prev().children().text(' ' + (parseInt(this.value)/10) + ' bil')
             }
 
-        
-                
-                // operating profit
-
-                chartData[2][2] = ($("#gross-profit-slider")[0].value/$("#gross-profit-slider")[0].max * $("#gross-profit-slider")[0].dataset.attrMax) - ($("#operating-expense-slider")[0].value/$("#operating-expense-slider")[0].max * $("#operating-expense-slider")[0].dataset.attrMax)       
-                     console.log( chartData[5][2] )
-                
-                // net income
-
-    
-                chartData[4][2] = ($("#gross-profit-slider")[0].value/$("#gross-profit-slider")[0].max * $("#gross-profit-slider")[0].dataset.attrMax) - 
-                ($("#operating-expense-slider")[0].value/$("#operating-expense-slider")[0].max * $("#operating-expense-slider")[0].dataset.attrMax) -  
-                ( ($("#rd")[0].value/$("#rd")[0].max * $("#rd")[0].dataset.attrMax) + ($("#sga")[0].value/$("#sga")[0].max * $("#sga")[0].dataset.attrMax) + ($("#income-tax")[0].value/$("#income-tax")[0].max * $("#income-tax")[0].dataset.attrMax) )
-                     
                 // gross profit
-                chartData[1][2] = (  ($('#auto-sales-revenue-slider')[0].value/$('#auto-sales-revenue-slider')[0].max * $('#auto-sales-revenue-slider')[0].dataset.attrMax) + 
+
+                grossProfit = (  ($('#auto-sales-revenue-slider')[0].value/$('#auto-sales-revenue-slider')[0].max * $('#auto-sales-revenue-slider')[0].dataset.attrMax) + 
                     ( $('#energy-revenue-slider')[0].value/$('#energy-revenue-slider')[0].max * $('#energy-revenue-slider')[0].dataset.attrMax )
                         + ( $('#service-revenue-slider')[0].value/$('#service-revenue-slider')[0].max * $('#service-revenue-slider')[0].dataset.attrMax ) +
                         ( $('#auto-reg-credits-slider')[0].value/$('#auto-reg-credits-slider')[0].max * $('#auto-reg-credits-slider')[0].dataset.attrMax )) - 
                         ( $('#cost-of-revenue-slider')[0].value/$('#cost-of-revenue-slider')[0].max * $('#cost-of-revenue-slider')[0].dataset.attrMax) 
+                
+                chartData[1][2] = grossProfit
+
+
+                // operating profit
+
+                chartData[2][2] = grossProfit - ($("#operating-expense-slider")[0].value/$("#operating-expense-slider")[0].max * $("#operating-expense-slider")[0].dataset.attrMax)       
+
+                
+                // net income
+
+                chartData[4][2] = grossProfit - 
+                ($("#operating-expense-slider")[0].value/$("#operating-expense-slider")[0].max * $("#operating-expense-slider")[0].dataset.attrMax) -  
+                ( ($("#rd")[0].value/$("#rd")[0].max * $("#rd")[0].dataset.attrMax) + ($("#sga")[0].value/$("#sga")[0].max * $("#sga")[0].dataset.attrMax) + ($("#income-tax")[0].value/$("#income-tax")[0].max * $("#income-tax")[0].dataset.attrMax) )
+                     
+
 
 
 
