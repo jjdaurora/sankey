@@ -95,17 +95,16 @@
 
                 // operating profit
 
-                chartData[2][2] = grossProfit - ($("#operating-expense-slider")[0].value/$("#operating-expense-slider")[0].max * $("#operating-expense-slider")[0].dataset.attrMax)       
+                operatingProfit = grossProfit - ($("#operating-expense-slider")[0].value/$("#operating-expense-slider")[0].max * $("#operating-expense-slider")[0].dataset.attrMax)       
 
+                chartData[2][2] = operatingProfit
                 
                 // net income
 
-                chartData[4][2] = grossProfit - 
-                ($("#operating-expense-slider")[0].value/$("#operating-expense-slider")[0].max * $("#operating-expense-slider")[0].dataset.attrMax) -  
-                ( ($("#rd")[0].value/$("#rd")[0].max * $("#rd")[0].dataset.attrMax) + ($("#sga")[0].value/$("#sga")[0].max * $("#sga")[0].dataset.attrMax) + ($("#income-tax")[0].value/$("#income-tax")[0].max * $("#income-tax")[0].dataset.attrMax) )
+                chartData[4][2] = operatingProfit - ( ($("#rd")[0].value/$("#rd")[0].max * $("#rd")[0].dataset.attrMax) + ($("#sga")[0].value/$("#sga")[0].max * $("#sga")[0].dataset.attrMax) + ($("#income-tax")[0].value/$("#income-tax")[0].max * $("#income-tax")[0].dataset.attrMax) )
                      
 
-
+                console.log("Gross:", grossProfit, "operating:", operatingProfit)
 
 
                 chartData[this.dataset.attrVal][2] = (this.value / this.max) * this.dataset.attrMax
