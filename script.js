@@ -109,7 +109,8 @@
 
                 
                 if ($(this).attr("id") === "auto-sales-revenue-slider") {
-                    $(this).prev().children().text(' ' + (parseInt(this.value)/6.25) + ' bil')
+                    num = Math.round((this.value * 10)/6.25)/10
+                    $(this).prev().children().text(' ' + num + ' bil')
 
                 } else {
                     $(this).prev().children().text(' ' + (parseInt(this.value)/10) + ' bil')
