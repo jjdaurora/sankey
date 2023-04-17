@@ -115,7 +115,7 @@
                     $(this).prev().children().text(' ' + (parseInt(this.value)/10) + ' bil')
                 }
       
-                  $("#gross-profit-display").text(' ' + (parseInt(grossProfit/2.35) + ' bil' ))
+                $("#gross-profit-display").text(' ' + (parseInt(Math.round(grossProfit/2.35)) + ' bil' ))
                 $("#operating-profit-display").text(' ' + (parseInt(operatingProfit/10) + ' bil' ))
                 $("#net-income-display").text(' ' + (parseInt(netIncome/10) + ' bil' ))
 
