@@ -43,8 +43,8 @@
       ]
     // Set chart options
         var options = {
-        width: 1200,
-        height: 600,
+        width: 1000,
+        height: 500,
         sankey: {
             node: {
             label: {
@@ -76,11 +76,7 @@
     for (let slider of sliders) {
 
         slider.oninput = function() {
-            if ($(this).attr("id") === "auto-sales-revenue-slider") {
-                $(this).prev().children().text(' ' + (parseInt(this.value)/6.25) + ' bil')
-            } else {
-                $(this).prev().children().text(' ' + (parseInt(this.value)/10) + ' bil')
-            }
+    
 
                 // gross profit
 
@@ -101,7 +97,9 @@
                 
                 // net income
 
-                chartData[4][2] = operatingProfit - ( ($("#rd")[0].value/$("#rd")[0].max * $("#rd")[0].dataset.attrMax) + ($("#sga")[0].value/$("#sga")[0].max * $("#sga")[0].dataset.attrMax) + ($("#income-tax")[0].value/$("#income-tax")[0].max * $("#income-tax")[0].dataset.attrMax) )
+                netIncome = operatingProfit - ( ($("#rd")[0].value/$("#rd")[0].max * $("#rd")[0].dataset.attrMax) + ($("#sga")[0].value/$("#sga")[0].max * $("#sga")[0].dataset.attrMax) + ($("#income-tax")[0].value/$("#income-tax")[0].max * $("#income-tax")[0].dataset.attrMax) )
+
+                chartData[4][2] = netIncome
                      
 
                 console.log("Gross:", grossProfit, "operating:", operatingProfit)
@@ -109,9 +107,17 @@
 
                 chartData[this.dataset.attrVal][2] = (this.value / this.max) * this.dataset.attrMax
 
-        
-          
+                
+                if ($(this).attr("id") === "auto-sales-revenue-slider") {
+                    $(this).prev().children().text(' ' + (parseInt(this.value)/6.25) + ' bil')
 
+                } else {
+                    $(this).prev().children().text(' ' + (parseInt(this.value)/10) + ' bil')
+                }
+      
+                  $("#gross-profit-display").text(' ' + (parseInt(grossProfit/2.35) + ' bil' ))
+                $("#operating-profit-display").text(' ' + (parseInt(operatingProfit/10) + ' bil' ))
+                $("#net-income-display").text(' ' + (parseInt(netIncome/10) + ' bil' ))
 
             drawChart(chartData)
         
