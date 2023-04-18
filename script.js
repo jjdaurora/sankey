@@ -83,7 +83,8 @@
                 grossProfit = (  ($('#auto-sales-revenue-slider')[0].value/$('#auto-sales-revenue-slider')[0].max * $('#auto-sales-revenue-slider')[0].dataset.attrMax) + 
                     ( $('#energy-revenue-slider')[0].value/$('#energy-revenue-slider')[0].max * $('#energy-revenue-slider')[0].dataset.attrMax )
                         + ( $('#service-revenue-slider')[0].value/$('#service-revenue-slider')[0].max * $('#service-revenue-slider')[0].dataset.attrMax ) +
-                        ( $('#auto-reg-credits-slider')[0].value/$('#auto-reg-credits-slider')[0].max * $('#auto-reg-credits-slider')[0].dataset.attrMax )) - 
+                        ( $('#auto-reg-credits-slider')[0].value/$('#auto-reg-credits-slider')[0].max * $('#auto-reg-credits-slider')[0].dataset.attrMax ) +
+                            $('#auto-lease-revenue-slider')[0].value/$('#auto-lease-revenue-slider')[0].max * $('#auto-lease-revenue-slider')[0].dataset.attrMax ) - 
                         ( $('#cost-of-revenue-slider')[0].value/$('#cost-of-revenue-slider')[0].max * $('#cost-of-revenue-slider')[0].dataset.attrMax) 
                 
                 chartData[1][2] = grossProfit
@@ -99,12 +100,9 @@
 
                 netIncome = operatingProfit - ( ($("#rd")[0].value/$("#rd")[0].max * $("#rd")[0].dataset.attrMax) + ($("#sga")[0].value/$("#sga")[0].max * $("#sga")[0].dataset.attrMax) + ($("#income-tax")[0].value/$("#income-tax")[0].max * $("#income-tax")[0].dataset.attrMax) )
 
-                chartData[4][2] = netIncome
+                chartData[4][2] = parseInt(netIncome)
                      
-
-                console.log("Gross:", grossProfit, "operating:", operatingProfit)
-
-
+                
                 chartData[this.dataset.attrVal][2] = (this.value / this.max) * this.dataset.attrMax
 
                 
@@ -116,9 +114,9 @@
                     $(this).prev().children().text(' ' + (parseInt(this.value)/10) + ' bil')
                 }
       
-                $("#gross-profit-display").text(' ' + (parseInt(Math.round(grossProfit/2.35)) + ' bil' ))
-                $("#operating-profit-display").text(' ' + (parseInt(operatingProfit/10) + ' bil' ))
-                $("#net-income-display").text(' ' + (parseInt(netIncome/10) + ' bil' ))
+                $("#gross-profit-display").text(' ' + (parseInt(Math.round(grossProfit/2.5)) + ' bil' ))
+                $("#operating-profit-display").text(' ' + (parseInt(operatingProfit/2.5) + ' bil' ))
+                $("#net-income-display").text(' ' + (parseInt(netIncome/2.5) + ' bil' ))
 
             drawChart(chartData)
         
