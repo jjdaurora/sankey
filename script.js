@@ -28,9 +28,10 @@
   const colors =  [
         '#1ED5BE',         
         '#1ED5BE',           
-        '#DADADA',
         '#1ED5BE',
-        '#1ED5BE', 
+
+        '#F39187',
+        '#F39187', 
         '#F39187',
         '#1ED5BE', 
         '#1ED5BE', 
@@ -111,7 +112,10 @@
                     $(this).prev().children().text(' ' + num + ' bil')
 
                 } else {
-                    $(this).prev().children().text(' ' + (parseInt(this.value)/10) + ' bil')
+                    if (this.value < 10 ) {
+                         $(this).prev().children().text(' ' + parseInt(this.value) + ' mil')
+                    } else {
+                    $(this).prev().children().text(' ' + (parseInt(this.value)/10) + ' bil')}
                 }
       
                 $("#gross-profit-display").text(' ' + (parseInt(Math.round(grossProfit/2.5)) + ' bil' ))
