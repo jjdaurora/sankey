@@ -113,7 +113,7 @@
 
                 } else {
                     if (this.value < 10 ) {
-                         $(this).prev().children().text(' ' + parseInt(this.value) + ' mil')
+                         $(this).prev().children().text(' ' + parseInt(this.value*100) + ' mil')
                     } else {
                     $(this).prev().children().text(' ' + (parseInt(this.value)/10) + ' bil')}
                 }
