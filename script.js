@@ -29,9 +29,10 @@
         '#1ED5BE',         
         '#1ED5BE',           
         '#DADADA',
+        '#DADADA',
         '#F39187',
         '#F39187', 
-        '#F39187',
+        '#1ED5BE',
         '#1ED5BE', 
         '#1ED5BE', 
         '#1ED5BE', 
@@ -46,6 +47,7 @@
         width: 1000,
         height: 500,
         sankey: {
+            enableInteractivity: false,
             node: {
             label: {
                 fontName: 'Roboto Mono',
@@ -60,7 +62,7 @@
               width: 5,            // Thickness of the node.
               colors: '#DADADA',
             },
-            tooltip: {textStyle: {color: '#1ED5BE'}, showColorCode: true},
+            tooltip: {isHtml: true, trigger: 'selection'},
             link: {
               colorMode: 'source',
               colors: colors
@@ -161,4 +163,3 @@
 
         })
     });
-
