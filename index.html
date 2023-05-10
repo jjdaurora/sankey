@@ -1,229 +1,132 @@
+<!DOCTYPE html>
 <html>
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-<style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+  <style>
+    body, html {
+      background: #080616;
+      color: #fff;
+      font-family: Roboto;
+    }
+    .sankey-node text {
+      font: 10px sans-serif;
+      pointer-events: none;
+      text-shadow: 0 1px 0 #fff;
+      color: white;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
 
-body {
-  font-family: 'Roboto', sans-serif !important;
-  color: #ffff
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
 }
-.div-block-521 {
-    font-size: 1.1em;
-    width: 100%;
-    margin: 2%;
+input[type=range]:focus {
+  outline: none;
 }
-
-.div-block-521 input {
-    margin-left: 2%;
+input[type=range]::-webkit-slider-runnable-track {
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #1a1a1a;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
 }
-
-.field-label-9 {
-    position: relative;
-    left: 3.1em;
-    -ms-grid-row-align: center;
-    align-self: center;
-    color: #6a608b;
-    text-align: left;
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 16px;
+  width: 16px;
+  border-radius: 90%;
+  background: #dd30fc;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5px;
 }
-.field-label-11 {
-    -ms-grid-row-align: center;
-    align-self: center;
-    color: #6a608b;
-    text-align: left;
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #367ebd;
 }
-.field-label-10 {
-    position: relative;
-    left: 2.4em;
-    margin-bottom: 5px;
-    -ms-grid-row-align: center;
-    align-self: center;
-    color: #6a608b;
-    text-align: left;
+input[type=range]::-moz-range-track {
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+/*  background: #3071a9;*/
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
 }
-
-label {
-    display: inline-block;
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
 }
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
 }
-
-.slidecontainer {
-  width: 100%; /* Width of the outside container */
-  font-family: 'Roboto', sans-serif !important;
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
-
-/* The slider itself */
-.slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  appearance: none;
-  width: 100%; /* Full-width */
-  height: 25px; /* Specified height */
-  background: #1a1a1a; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
-  border-radius: 999rem
+input[type=range]::-ms-fill-upper {
+/*  background: #3071a9;*/
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
-
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+/*  background: #ffffff;*/
+  cursor: pointer;
 }
-
-
-.text-field-8, .text-field-7 {
-    width: 20em;
-    border-style: none none solid;
-    border-width: 1px;
-    border-color: #000 #000 #a17aff;
-    background-color: #0d0628;
-    padding: .25rem;
+input[type=range]:focus::-ms-fill-lower {
+/*  background: #3071a9;*/
 }
-
-
-button, input, optgroup, select, textarea {
-  margin: 0;
-    font-family: inherit;
-
+input[type=range]:focus::-ms-fill-upper {
+/*  background: #367ebd;*/
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #dd30fc; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-  border-radius: 100rem
-}
 
-.slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
-.submit-button-17 {
-    display: inline-block;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #7affcc;
-    background-color: #0d0628;
-    color: #7affcc;
-    text-align: left;
-}
-.slider-value-display {
-    color: #fff;
-    font-family: "Roboto Mono";
-}
-</style>
-
+  </style>
 
 </head>
-<body style="background-color: #0d0628;">
+<body>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
- <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="https://unpkg.com/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+  <h1 style="text-align: center;">TESLA EARNINGS - Q1 2023</h1>
 
- <div style="display:flex; flex-direction: column; align-items: center; flex-wrap: wrap;">
-  <div class="div-block-521">
-    <!-- <label for="name" class="field-label-9">Name</label> -->
-    <!-- <input type="text" class="text-field-8 w-input" maxlength="256" name="name" data-name="Name" placeholder id="name" value="Name"> -->
-    <!-- <label for="email" class="field-label-10">Date</label> -->
-    <!-- <input type="email" class="text-field-7 w-input" maxlength="256" name="email" data-name="Email" placeholder id="email" value="Email" required> -->
-    <!-- <input type="submit" value="Enter" data-wait="Please wait..." class="submit-button-17 w-button" style="margin-left: 2%"> -->
- </div>
-  <div class="slidecontainer" style="width:100%;text-align:center;display:flex;flex-direction:row; justify-content: space-around; font-family: Roboto Mono !important">
-    <div>
-        <h3>REVENUE</h3>
+<div class="container">
+  <div id="sliders-container"></div>
+  <div id="sankey-chart"></div>
 
-        <label for="auto-sales-revenue" class="field-label-11">
-            Auto Sales Revenue
-            <span class="slider-value-display"></span>
-        </label>
-        <input type="range" min="0" max="250" value="15" class="slider" data-attr-max="100" data-attr-val="0" id="auto-sales-revenue-slider">
+</div>
 
+<form id="sankey-input" style="display:none">
+  <textarea id="flow-data" placeholder="Enter flow data"></textarea>
+  <button type="submit">Generate Chart</button>
+</form>
 
-        <label for="auto-reg-credits" class="field-label-11">Auto Reg Credits
-            <span class="slider-value-display"></span>
-        </label>
-        <input type="range" min="0" max="20" value="0" class="slider" data-attr-max="5" data-attr-val="9">
-
-        <label for="auto-reg-credits" class="field-label-11">Auto Lease Revenue
-            <span class="slider-value-display"></span>
-        </label>
-        <input type="range" min="0" max="20" value="0" class="slider" data-attr-max="5" data-attr-val="10">
-
-         <label for="auto-reg-credits" class="field-label-11">
-            Energy Revenue
-            <span class="slider-value-display"></span>
-        </label>
-        <input type="range" min="0" max="40" value="0" class="slider" data-attr-max="10" data-attr-val="11" id="energy-revenue-slider">
-
-        <label for="auto-reg-credits" class="field-label-11">Service Revenue
-            <span class="slider-value-display"></span>
-        </label>
-        <input type="range" min="0" max="100" value="0" class="slider" data-attr-max="25" data-attr-val="12" id="service-revenue-slider">
-    </div>
-    <div>
-      <h3>EXPENSES</h3>
-
-        <label for="auto-reg-credits" class="field-label-11">Cost of Revenue
-            <span class="slider-value-display"></span>
-        </label>
-        <input type="range" min="0" max="300" value="10" class="slider" data-attr-max="12.5" data-attr-val="13" id="cost-of-revenue-slider">
-      
-        <label for="auto-reg-credits" class="field-label-11">Operating Expense
-            <span class="slider-value-display"></span>
-        </label>
-        <input type="range" min="0" max="50" value="0" class="slider larger-equation operating-profit-calc" data-attr-max="12.5" data-attr-val="6" data-attr-calc="do-math" id="operating-expense-slider">
-      
-        <label for="auto-reg-credits" class="field-label-11">R&D
-            <span class="slider-value-display"></span>
-        </label>
-        <input type="range" min="0" max="50" value="0" class="slider" data-attr-max="12.5" data-attr-val="6" id="rd" data-attr-calc="do-math">
-      
-        <label for="auto-reg-credits" class="field-label-11">SGA Expense
-            <span class="slider-value-display"></span></label>
-        <input type="range" min="0" max="100" value="0" class="slider" data-attr-max="12.5" data-attr-val="7" id="sga" data-attr-calc="do-math"> 
-        
-        <label for="auto-reg-credits" class="field-label-11">Income Tax
-            <span class="slider-value-display"></span>
-        </label>
-        <input type="range" min="0" max="100" value="0" class="slider" data-attr-max="50" data-attr-val="3" id="income-tax" data-attr-calc="do-math">
-        
-        <!-- <label for="auto-reg-credits" class="field-label-11">Gross Profit
-            <span class="slider-value-display"></span>
-        </label>
-        <input type="range" min="0" max="100" value="0" class="slider larger-equation operating-profit-calc" data-attr-max="50" data-attr-val="1" data-attr-calc="do-math" id="gross-profit-slider"> -->
-        
-<!--         <label for="auto-reg-credits" class="field-label-11">Operating Profit
-            <span class="slider-value-display"></span>
-        </label> -->
-        <!-- <input type="range" min="0" max="100" value="0" class="slider" data-attr-max="50"data-attr-val="2"> -->
-        
-        <!-- <label for="auto-reg-credits" class="field-label-11">Net Income (GAAP)
-            <span class="slider-value-display"></span>
-        </label>
-        <input type="range" min="0" max="100" value="0" class="slider" data-attr-max="50"data-attr-val="5"> -->
-    </div>
-  </div>
-
-  <div id="sankey_multiple" style="width: 50%; height: 25%; margin: 5% 25% 0% 0%"></div>
-
- </div>
-
-<script src="script.js">
-</script>
-
-
+<script src="script.js"></script>
 </body>
 </html>
