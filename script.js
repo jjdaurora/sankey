@@ -173,6 +173,7 @@ function drawSankeyChart(data) {
       .style("fill", "#080616")
       .attr("id", d => d.name.split(" ").join("-").toLowerCase() + "-node"); // assign ID to node
 
+
   svg.append("g")
     .attr("class", "links")
     .selectAll("path")
@@ -185,21 +186,22 @@ function drawSankeyChart(data) {
       .style("stroke-opacity", 0.60)
       .style("fill", "none");
 
-  svg.append("g")
-    .attr("class", "node-labels")
-    .selectAll("text")
-    .data(nodes)
-    .enter()
-    .append("text")
-      .attr("x", d => d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6)
-      .attr("y", d => (d.y1 + d.y0) / 2)
-      .attr("dy", "0.35em")
-      .attr("text-anchor", d => d.x0 < width / 2 ? "start" : "end")
-      .text(d => d.name)
-      .style("font-size", "12px")
-      .style("font-family", "Roboto")
-      .style("fill", "white")
-      .attr("id", d => d.name.split(" ").join("-").toLowerCase() + "-label"); // assign ID to label
+      svg.append("g")
+      .attr("class", "node-labels")
+      .selectAll("text")
+      .data(nodes)
+      .enter()
+      .append("text")
+        .attr("x", d => d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6)
+        .attr("y", d => (d.y1 + d.y0) / 2)
+        .attr("dy", "0.35em")
+        .attr("text-anchor", d => d.x0 < width / 2 ? "start" : "end")
+        .text(d => d.name)
+        .style("font-size", "12px")
+        .style("font-family", "Roboto")
+        .style("fill", "white")
+        .attr("id", d => d.name.split(" ").join("-").toLowerCase() + "-label") // assign ID to label
+        .style("display", d => d.name === "Revenue" ? "none" : null); // hide the "Revenue" label
 
 
   // Add node labels' value display spans
@@ -221,7 +223,8 @@ svg.append("g")
   }) // Display the initial value based on the slider value
   .style("fill", "white")
   .style("font-size", "12px")
-  .style("font-family", "sans-serif");
+  .style("font-family", "sans-serif")
+  .style("display", d => d.name === "Revenue" ? "none" : null); // hide the value display for the "Revenue" node
 
 
 }
@@ -299,9 +302,10 @@ function parseFlowData(input) {
     const [source, amount, target] = line.split(/[\[\]]/).map(s => s.trim());
     const value = parseFloat(amount);
 
+  
     nodes.add(source);
     nodes.add(target);
-    links.push({source, target, value});
+     links.push({source, target, value});
   }
 
   const nodesArray = Array.from(nodes).map(name => ({name}));
@@ -356,19 +360,19 @@ function parseNodesAndLinks(flowData) {
   };
 }
 
-const defaultFlowData = `Auto Sales Revenue [900] Revenue
-Service Revenue [325] Revenue
+const defaultFlowData = `Auto Sales Revenue [150] Revenue
+Service Revenue [150] Revenue
 Energy Revenue [150] Revenue
 Auto Lease Credits [150] Revenue
 Auto Reg Credits [150] Revenue
-Revenue [1000] Gross Profit
+Revenue [450] Gross Profit
 Gross Profit [350] Operating Profit
 Gross Profit [650] Operating Expenses
 Operating Profit [260] Net Income (GAAP)
 Operating Profit [90] Tax
 Operating Expenses [640] SGA Expense
 Operating Expenses [10] R & D
-Revenue [800] Cost of Sales`;
+Revenue [300] Cost of Sales`;
 
 
 
@@ -387,4 +391,5 @@ document.getElementById("flow-data").value = defaultFlowData;
 const nodesAndLinks = parseNodesAndLinks(defaultFlowData);
 createSliders(nodesAndLinks);
 document.getElementById("sankey-input").dispatchEvent(new Event("submit"));
+
 
